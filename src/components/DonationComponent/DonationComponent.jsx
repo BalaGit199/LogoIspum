@@ -6,27 +6,38 @@ import paynow from '../../assets/PayNow.png'
 import PayIcon from '../../assets/Icon Right.png'
 import {useFormik} from 'formik';
 import * as yup from 'yup';
+import { useState } from "react";
 function DonationComponent() {
-  
-  const onSubmit = () =>{
-    console.log("valuess",values);
-}
-  const {values,handleBlur,handleChange,touched,errors,handleSubmit} = useFormik({
-
-    initialValues:{
-    name:'',
-    email:'',
-    tax_id:'',
+  const [payment,setpayment] = useState(false)
+  const onSubmit = () => {
+  if(payment) {console.log('values',values)}
+  }
+  const schema = yup.object().shape({
+    full_name:yup.string().required("Name is Required"),
+    email:yup.string().email("Enter the proper email").required('This field is required'),
+    postal_code:yup.number().positive().integer().required("This field is required"),
+    unit_number:yup.number().positive().integer().required("This field is required"),
+    postal_code:yup.number().positive().integer().required("This field is required"),
+    donationAmount:yup.number().positive().integer().required("This field is required"),
+    address:yup.string().required("Name is Required"),
+    remark:yup.string().required("Name is Required"),
+})
+const {values,handleBlur,handleChange,handleSubmit,errors} = useFormik({
+  initialValues:{
+    full_name:'',
     postal_code:'',
     unit_number:'',
-    rep_tax_id:'',
-    address:'',
+    email:'',
+    tax_rep_name:'',
     remark:'',
+    tax_id:'',
+    address:'',
+    donationAmount:'',
 
-    },
-    onSubmit
-
-   });
+  },
+  validationSchema:schema,
+  onSubmit
+})
 
   return (
     <div className="main-donation-container">
@@ -48,7 +59,7 @@ function DonationComponent() {
             <div className="entity-type entity-1">
               <div className="title">
                 {" "}
-                <input type="checkbox" checked />
+                <input type="checkbox" defaultChecked />
                 Donate as an Individual
               </div>
               <div className="sub-title">Provide my personal data</div>
@@ -86,68 +97,82 @@ function DonationComponent() {
               <div className="form-section">
                 <div className="section-1">
                   <input type="text" placeholder="Full Name" 
-                  id="name"
+                  id="full_name"
+                  value={values.full_name}
                   onChange={handleChange}
-                  value={values.name}
                   onBlur={handleBlur}
                   />
-
                   <div className="ids">
                     <select name="tax">
                       <option value='ID Type'>ID Type</option>
-                      <option value="saab">ID Type</option>
+                      <option value="option-1">ID Type</option>
                     </select>
   
                     <input  className="test" type="text" placeholder="Tax Recipient ID"
                     id="tax_id"
                     value={values.tax_id}
+                    onChange={handleChange}
                     onBlur={handleBlur}
-                    onChange={handleChange} />
+                   />
                   
                   </div>
 
                   <input type="text" placeholder="Postal Code"
                   id="postal_code"
-                  value={values.postal_code} 
+                  value={values.postal_code}
                   onChange={handleChange}
-                  onBlur={handleBlur}/>
-                  <input type="text" placeholder="Unit Number" />
+                  onBlur={handleBlur}
+                  />
+                  <input type="text" placeholder="Unit Number" 
+                  value={values.unit_number}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  />
                 </div>
 
                 <div className="section-2">
                   <input type="text" placeholder="Email Address" 
                   id="email"
-                  value={values.email} 
+                  value={values.email}
                   onChange={handleChange}
-                  onBlur={handleBlur}/>
+                  onBlur={handleBlur}
+                  />
                   <input type="text" placeholder="Tax Recipient Full Name"
                   id="tax_rep_name"
-                  value={values.tax_rep_name} 
+                  value={values.tax_rep_name}
                   onChange={handleChange}
-                  onBlur={handleBlur} />
-                  <input type="text" placeholder="Addreass"
+                  onBlur={handleBlur}
+                  />
+                  <input type="text" placeholder="Address"
                   id="address"
-                  value={values.address} 
+                  value={values.address}
                   onChange={handleChange}
-                  onBlur={handleBlur}/>
+                  onBlur={handleBlur}
+                  />
                   <input type="text" placeholder="Remarks"
                   id="remark"
-                  value={values.remark} 
+                  value={values.remark}
                   onChange={handleChange}
-                  onBlur={handleBlur} />
+                  onBlur={handleBlur}
+                  />
                 </div>
               </div>
               <div className="title-3">How much would you like to donate?</div>
               <div className="donation-amount">
                 {" "}
                 <input type="text" placeholder="Donation amount"  
-                id="donation"
+                id="donationAmount"
+                value={values.donationAmount}
                 onChange={handleChange}
                 onBlur={handleBlur}/>
               </div>
               <div className="payandagree">
-                <div className="pay-card"><img src={master}/> Credit Card</div>
-                <div className="pay-card"><img src={paynow}/>PayNow</div>
+                <div className="pay-card"><img src={master} onClick={() => {
+                  payment()
+                }}/> Credit Card</div>
+                <div className="pay-card"><img src={paynow} onClick={() => {
+                  payment()
+                }}/>PayNow</div>
               </div>
               <div className="agree-contaiter">
               <div className="agree">

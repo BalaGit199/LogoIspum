@@ -269,3 +269,8 @@ input:checked ~ .entity-1{
 .agree span{
     color: blue;
 }
+
+.error{
+  border: 1px solid red;
+  background-color: #101828;
+}
