@@ -2,6 +2,9 @@ import React from 'react'
 import './footercomponent.css'
 import Logo from '../../assets/Logo.png'
 import twitter from '../../assets/Social icon.png'
+import linkin from '../../assets/Social icon(1).png'
+import facebook from '../../assets/Social icon(2).png'
+
 function FooterComponent() {
   return (
     <div className='footer-main-container'>
@@ -28,8 +31,8 @@ function FooterComponent() {
               <div className="footer-texts">© 2023 InterAktiv Technology Pte Ltd. Test purposes.</div>
               <div className="social-icons">
                 <div><img src={twitter}/></div>
-                <div><img src={twitter}/></div>
-                <div><img src={twitter}/></div>
+                <div><img src={linkin}/></div>
+                <div><img src={facebook}/></div>
               </div>
             </div>
         </div>

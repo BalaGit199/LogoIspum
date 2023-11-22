@@ -13,7 +13,7 @@ import {setUser} from '../../../redux/userSlicer'
 function DonationComponent() {
   const [payment, setpayment] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const onSubmit = () => {
     dispatch(setUser(values))
     navigate("/successPage"); 
