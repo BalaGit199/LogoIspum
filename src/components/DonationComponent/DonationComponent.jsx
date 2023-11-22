@@ -7,27 +7,29 @@ import PayIcon from "../../assets/Icon Right.png";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {setUser} from '../../../redux/userSlicer'
+import { setUser } from "../../../redux/userSlicer";
 function DonationComponent() {
-  const [payment, setpayment] = useState(false);
+  const [payment, setpayment] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userval = useSelector((state) => state.user);
   const onSubmit = () => {
-    dispatch(setUser(values))
-    navigate("/successPage"); 
+    if(payment === true){
+      dispatch(setUser(values));
+      navigate("/successPage");
+      console.log("bbbb", userval);
+    }
+    else{
+      setpayment(false)
+    }
   };
   const schema = yup.object().shape({
     name: yup.string().required("Name is Required"),
     email: yup
       .string()
       .email("Enter the proper email")
-      .required("This field is required"),
-    postal_code: yup
-      .number()
-      .positive()
-      .integer()
       .required("This field is required"),
     unit_number: yup
       .number()
@@ -56,24 +58,40 @@ function DonationComponent() {
       .boolean()
       .oneOf([true], "You must accept the terms and conditions"),
   });
-  const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
-    initialValues: {
-      name: "",
-      postal_code: "",
-      unit_number: "",
-      email: "",
-      tax_rep_name: "",
-      remark: "",
-      tax_id: "",
-      address: "",
-      donationAmount: "",
-      agree: false,
-      // tax: "",
-    },
-    validationSchema: schema,
-    onSubmit,
-  });
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+    useFormik({
+      initialValues: {
+        name: "",
+        postal_code: "",
+        unit_number: "",
+        email: "",
+        tax_rep_name: "",
+        remark: "",
+        tax_id: "",
+        address: "",
+        donationAmount: "",
+        agree: false,
+        // tax: "",
+      },
+      validationSchema: schema,
+      onSubmit,
+    });
 
+  const selectPayment = (value) => {
+    const test = document.getElementById("payandagree");
+    for (let i = 0; test.children.length > i; i++) {
+      if (test.children[i] == value) {
+        test.children[i].classList.add("selected_payment");
+
+      } else {
+        test.children[i].classList.remove("selected_payment");
+      }
+    }
+    const selectpay = test.children[value];
+    selectpay.classList.add("selected_payment");
+    setpayment(true)
+    console.log("gghjj", test.children[value]);
+  };
   console.log("errors", errors);
 
   return (
@@ -137,8 +155,8 @@ function DonationComponent() {
                     type="text"
                     placeholder="Full Name"
                     id="name"
-                    className={errors.full_name && "error"}
-                    value={values.full_name}
+                    className={errors.name && touched.name && "error"}
+                    value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
@@ -149,7 +167,6 @@ function DonationComponent() {
                       value={values.tax}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      
                     >
                       <option value="ID Type">NRIC</option>
                     </select>
@@ -161,7 +178,7 @@ function DonationComponent() {
                       value={values.tax_id}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className={errors.tax_id && "error"}
+                      className={errors.tax_id && touched.tax_id && "error"}
                     />
                   </div>
 
@@ -169,7 +186,9 @@ function DonationComponent() {
                     type="text"
                     placeholder="Postal Code"
                     id="postal_code"
-                    className={errors.postal_code && "error"}
+                    className={
+                      errors.postal_code && touched.postal_code && "error"
+                    }
                     value={values.postal_code}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -181,7 +200,9 @@ function DonationComponent() {
                     value={values.unit_number}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.unit_number && "error"}
+                    className={
+                      errors.unit_number && touched.unit_number && "error"
+                    }
                   />
                 </div>
 
@@ -193,7 +214,7 @@ function DonationComponent() {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.email && "error"}
+                    className={errors.email && touched.email && "error"}
                   />
                   <input
                     type="text"
@@ -202,7 +223,9 @@ function DonationComponent() {
                     value={values.tax_rep_name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.tax_rep_name && "error"}
+                    className={
+                      errors.tax_rep_name && touched.tax_rep_name && "error"
+                    }
                   />
                   <input
                     type="text"
@@ -211,7 +234,7 @@ function DonationComponent() {
                     value={values.address}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.address && "error"}
+                    className={errors.address && touched.address && "error"}
                   />
                   <input
                     type="text"
@@ -220,7 +243,7 @@ function DonationComponent() {
                     value={values.remark}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={errors.remark && "error"}
+                    className={errors.remark && touched.remark && "error"}
                   />
                 </div>
               </div>
@@ -234,19 +257,32 @@ function DonationComponent() {
                   value={values.donationAmount}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={errors.donationAmount && "error"}
+                  className={
+                    errors.donationAmount && touched.donationAmount && "error"
+                  }
                 />
                 <div className="donation-amount-val">Donation amount</div>
               </div>
-              <div className="payandagree">
-                <div className="pay-card">
+              <div className="payandagree" id="payandagree">
+                <div
+                  className="pay-card paycard-1"
+                  onClick={() => {
+                    selectPayment(0);
+                  }}
+                >
                   <img src={master} /> Credit Card
                 </div>
-                <div className="pay-card">
+                <div
+                  className="pay-card paycard-2"
+                  onClick={() => {
+                    selectPayment(1);
+                  }}
+                >
                   <img src={paynow} />
                   PayNow
                 </div>
               </div>
+              {payment === false && <p style={{color:'red',width:'100%',textAlign:'center'}}>Select payment method</p>}
               <div className="agree-contaiter">
                 <div className="agree">
                   <input
@@ -260,7 +296,9 @@ function DonationComponent() {
                   I agree with the <span>terms and conditions</span>
                 </div>
               </div>
-              {errors.agree && <p className="agree-message">{errors.agree}!</p>}
+              {errors.agree && touched.agree && (
+                <p className="agree-message">{errors.agree}!</p>
+              )}
               <div className="submit-btn">
                 <button type="submit">
                   Donate

@@ -201,8 +201,6 @@ input:checked ~ .entity-1 {
 }
 .title-3 {
   color: var(--neutral-900, #101828);
-
-  /* Subtitle 1 / 20px - Semi Bold */
   font-family: Poppins;
   font-size: 1.25rem;
   font-style: normal;
@@ -239,6 +237,20 @@ input:checked ~ .entity-1 {
   border-radius: 0.75rem;
   border: 1px solid var(--neutral-300, #d0d5dd);
   background: #fff;
+  cursor: pointer;
+}
+.selected_payment{
+  display: flex;
+  width: 11.5rem;
+  padding: 0.75rem;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  border: 1px solid var(--neutral-300, #d0d5dd);
+  background:rgba(18, 18, 252, 0.699);
+  color: white;
+  cursor: pointer;
 }
 .agree {
   display: flex;

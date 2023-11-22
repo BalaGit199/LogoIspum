@@ -5,13 +5,9 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 function DonationSuccess() {
-  const [selector, setSelector] = useState({});
-  const value = useSelector((state) => state.user);
+  const userval = useSelector(state => state.user)
 
-  useEffect(()=> {
-    setSelector((prev) => prev = value);
-  },[])
-  console.log("state", selector);
+  console.log("state", userval);
   return (
     <div className="donation-successful-main-container">
       <div className="donation-successful-container">
@@ -35,27 +31,27 @@ function DonationSuccess() {
           <div className="donation-information">
             <div className="details">
               <div className="title">Name</div>
-              <div className="data">{selector.name}</div>
+              <div className="data">{userval.user.name}</div>
             </div>
             <div className="details">
               <div className="title">Email Address</div>
-              <div className="data">{selector.email}</div>
+              <div className="data">{userval.user.email}</div>
             </div>
             <div className="details">
               <div className="title">Postal Code</div>
-              <div className="data">{selector.postal_code}</div>
+              <div className="data">{userval.user.postal_code}</div>
             </div>
             <div className="details">
               <div className="title">Unit Number</div>
-              <div className="data">{selector.unit_number}</div>
+              <div className="data">{userval.user.unit_number}</div>
             </div>
             <div className="details">
               <div className="title">Address</div>
-              <div className="data">{selector.address}</div>
+              <div className="data">{userval.user.address}</div>
             </div>
             <div className="details">
               <div className="title">Reamark</div>
-              <div className="data">{selector.remark}</div>
+              <div className="data">{userval.user.remark}</div>
             </div>
           </div>
           <div className="deduction-infomation">
@@ -65,11 +61,11 @@ function DonationSuccess() {
                 <div className="tax-recipient-heading">
                   Tax Recipient Full Name
                 </div>
-                <div className="tax-recipient-name">{selector.name}</div>
+                <div className="tax-recipient-name">{userval.user.name}</div>
               </div>
               <div className="tax-recipient-id-container">
                 <div className="tax-recipient-heading">Tax Recipient Id</div>
-                <div className="tax-recipient-id">{selector.tax_id}</div>
+                <div className="tax-recipient-id">{userval.user.tax_id}</div>
               </div>
             </div>
           </div>
