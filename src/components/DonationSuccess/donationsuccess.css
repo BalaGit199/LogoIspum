@@ -1,0 +1,243 @@
+.donation-successful-main-container {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+.donation-successful-container {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+}
+
+.donation-successful-container .header {
+  display: flex;
+  padding: 4rem 3rem;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 1rem;
+  background: var(
+    --gradient-primary-60050090-deg,
+    linear-gradient(80deg, #1570ef 0%, #2e90fa 100%)
+  );
+
+  /* Drop Shadow/05 */
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
+}
+
+.donation-successful-container .header .header-text {
+  color: var(--base-white, #fff);
+  width: 60%;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.75rem; /* 125% */
+  letter-spacing: -0.06rem;
+}
+
+.donation-successful-container .content {
+  display: flex;
+  width: 50rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--neutral-300, #d0d5dd);
+  background: #fff;
+}
+.donation-successful-container .content .id-and-date {
+  display: flex;
+  padding-bottom: 0px;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  border-bottom: 1px solid var(--neutral-200, #eaecf0);
+}
+.donation-successful-container .content .id-and-date .id-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+.donation-successful-container
+  .content
+  .id-and-date
+  .id-container
+  .date-container {
+  display: flex;
+}
+.donation-successful-container .content .id-and-date .id-container .id-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2px;
+}
+.donation-successful-container .id-container .subheading {
+  color: var(--neutral-500, #667085);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+}
+.donation-successful-container .date-container {
+  display: flex;
+  flex-direction: column;
+}
+.donation-successful-container .date-container .subheading {
+  color: var(--neutral-500, #667085);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+}
+.donation-successful-container .donation-information {
+  display: flex;
+  width: 47rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.donation-successful-container .donation-information .details {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.donation-successful-container .donation-information .details .data {
+  color: var(--neutral-900, #101828);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+.donation-successful-container .donation-information .details .title {
+  color: var(--neutral-500, #667085);
+
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.donation-successful-container .deduction-infomation {
+  display: flex;
+  width: 47rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.donation-successful-container .deduction-infomation .decution-heading {
+  color: var(--neutral-900, #101828);
+
+  /* Subtitle 2 / 18px - Semi Bold */
+  font-family: Poppins;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem; /* 155.556% */
+}
+.donation-successful-container .deduction-infomation .deduction-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+.donation-successful-container
+  .deduction-infomation
+  .deduction-content
+  .tax-recipient-heading {
+  color: var(--neutral-500, #667085);
+
+  /* Body 1 / 16px - Regular */
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+.donation-successful-container
+  .deduction-infomation
+  .deduction-content
+  .tax-recipient-name {
+  color: var(--neutral-900, #101828);
+
+  /* Body 1 / 16px - Medium */
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem; /* 150% */
+}
+.donation-successful-container
+  .deduction-infomation
+  .deduction-content
+  .tax-recipient-id {
+  color: var(--neutral-900, #101828);
+
+  /* Body 1 / 16px - Medium */
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5rem; /* 150% */
+}
+.donation-successful-container .receipt-container {
+  display: flex;
+  width: 50rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--neutral-300, #d0d5dd);
+  background: #fff;
+}
+.donation-successful-container .receipt-container .heading {
+  color: var(--neutral-900, #101828);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+.donation-successful-container .receipt-container .donation-share-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.donation-successful-container
+  .receipt-container
+  .donation-share-btn
+  .share-donation {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--primary-50, #eff8ff);
+  background: var(--primary-50, #eff8ff);
+  cursor: pointer;
+}
+
+.donation-successful-container
+  .receipt-container
+  .donation-share-btn
+  .download-pdf {
+  border-radius: 0.75rem;
+  cursor: pointer;
+  border: 1px solid var(--neutral-300, #d0d5dd);
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--base-white, #fff);
+
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}

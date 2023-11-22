@@ -1,0 +1,107 @@
+.community-main-event-container {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.community-event-container {
+  width: 85%;
+}
+
+.community-heading-and-support .heading-and-support .subheading {
+  color: var(--primary-500, #2e90fa);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 150% */
+}
+.community-heading-and-support .heading-and-support .heading {
+  color: var(--neutral-900, #101828);
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.75rem; /* 122.222% */
+  letter-spacing: -0.045rem;
+}
+.community-heading-and-support .supporting-text {
+  color: var(--neutral-500, #667085);
+  width: 70%;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 150% */
+}
+.community-card-icon .icon-background {
+  width: 3rem;
+  height: 3rem;
+  transform: rotate(15deg);
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  background: var(--primary-700, #004eeb);
+}
+.community-card-icon .blur-icon {
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  /* Background Blur/md */
+  backdrop-filter: blur(8px);
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  top: 5px;
+  left: -5px;
+}
+
+.community-card .community-card-icon {
+  position: relative;
+}
+
+.community-card {
+  display: flex;
+  width: 17.5rem;
+  padding: 2rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--neutral-300, #d0d5dd);
+  background: var(--base-white, #fff);
+}
+
+.community-card-content .heading {
+  color: var(--gray-900, #101828);
+
+  /* Subtitle 1 / 20px - Semi Bold */
+  font-family: Poppins;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.875rem; /* 150% */
+}
+
+.community-card-content .subheading {
+  color: var(--gray-600, #475467);
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+.community-card-content .read-more{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.community-card-container{
+    display: flex;
+    padding-bottom: 0px;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid var(--neutral-200, #EAECF0);
+}

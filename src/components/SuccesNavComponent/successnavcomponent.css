@@ -1,0 +1,45 @@
+.success-nav-main-container {
+  width: 100%;
+  background-color: white;
+  display: flex;
+}
+.success-nav-container {
+  width: 85%;
+  display: flex;
+  padding: 0.7rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.donate-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+.donate-buttons .return {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--neutral-300, #d0d5dd);
+  background: var(--base-white, #fff);
+
+  /* Shadow/xs */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+.donate-buttons .donate {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--primary-500, #2e90fa);
+  background: var(--primary-500, #2e90fa);
+
+  /* Shadow/xs */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
